@@ -1,0 +1,15 @@
+
+doctype html
+html(lang="zh-cn")
+    head
+        if(title)
+            title #{title}
+        else
+            title express helloworld
+        include ../common/head
+        block css
+    body
+        block content
+        include ../common/foot
+        block javascirpt
+

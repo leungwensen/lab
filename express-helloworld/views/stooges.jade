@@ -1,0 +1,12 @@
+
+extends layout/default
+
+block content
+    if (stooge)
+        if (isFavorite)
+            p #{stooge} 是我最喜欢的喜剧演员
+        else
+            p #{stooge} 我不认识
+    else
+        哼！
+
