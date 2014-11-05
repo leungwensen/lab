@@ -1,0 +1,53 @@
+{
+    "name"        : "diagrambuilder",
+    "title"       : "diagrambuilder",
+    "description" : "view dependency tree of your modules in browser.",
+    "homepage"    : "https://github.com/leungwensen/diagrambuilder",
+
+    "main"    : "index.js",
+    "version" : "0.0.1",
+
+    "author": {
+        "description" : "team of diagrambuilder",
+        "url"         : "http://gitlab.alibaba-inc.com/wensen.lws/diagrambuilder/team"
+    },
+
+    "bugs" : {
+        "url" : "http://gitlab.alibaba-inc.com/wensen.lws/diagrambuilder/issues"
+    },
+
+    "dependencies"    : {
+        "node-static" : "*",
+        "optimist"    : "*",
+        "pastry"      : "*"
+    },
+
+    "devDependencies" : {
+        "gulp"       : "*",
+        "gulp-less"  : "*"
+    },
+
+    "engines" : {
+        "node": ">=0.8.0"
+    },
+
+    "keywords": [
+        "dependency tree",
+        "dependency",
+        "module",
+        "diagrambuilder"
+    ],
+
+    "licenses": [{
+        "type" : "MIT",
+        "url"  : ""
+    }],
+
+    "repository" : {
+        "type" : "git",
+        "url"  : "git@gitlab.alibaba-inc.com:wensen.lws/diagrambuilder.git"
+    },
+
+    "scripts" : {
+    }
+}
