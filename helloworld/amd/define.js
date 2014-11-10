@@ -1,5 +1,6 @@
 /* jshint strict: true, undef: true, unused: true */
-// /* global xxx, yyy */
+/* global console */
+
 var define;
 (function (GLOBAL) {
     /*
@@ -11,10 +12,19 @@ var define;
     var
         undef,
         pastry  = GLOBAL.pastry,
-        modules = {};
+        event   = pastry.event,
+        modules = {},
+        Module = function() {
+            
+        };
 
-    function addDefinition () {
-        
+    event(Module); // add on(), off(), emit(), trigger() to amd object
+
+    function getDependencies (ids) {
+        var deps = [];
+        pastry.each(ids, function(id) {
+            
+        });
     }
 
     define = GLOBAL.define = function (/* id? dependencies? factory */) {
@@ -22,6 +32,16 @@ var define;
             id           = pastry.isString(args[0]) ? args.shift() : undef,
             dependencies = args.length > 1 ? args.shift() : [],
             factory      = args[0];
+        console.log(id, dependencies, factory);
     };
-    define.amd = {}; // 最小实现
+
+    define.amd = {}; // AMD 最小实现
+    define.cmd = {}; // CMD 最小实现
+
+    Module.define = define;
+
+    // 核心模块 {
+        define('pastry', pastry);
+        define('Module', Module);
+    // }
 }(this));
