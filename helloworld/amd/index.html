@@ -7,9 +7,30 @@
 <body>
     <script src="core.js"></script>
     <script src="event.js"></script>
-    <script src="define.js"></script>
+    <script src="module.js"></script>
+    <!-- <script src="define.js"></script> -->
+    <!-- <script src="require.js"></script> -->
+    <script src="tAMD.js"></script>
+    <!-- <script src="sea.js"></script> -->
+    <!-- <script src="dojo/dojo.js"></script> -->
+    <!-- <script src="dojo/dojoAll.js"></script> -->
     <script src="moduleA.js"></script>
     <script src="moduleB.js"></script>
     <script src="moduleC.js"></script>
+    <script>
+
+        define([
+            'moduleB'
+        ], function () {
+            console.log('loaded B');
+        });
+
+        define([
+            'moduleC'
+        ], function () {
+            console.log('loaded C');
+        });
+
+    </script>
 </body>
 </html>

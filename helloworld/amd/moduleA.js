@@ -1,5 +1,5 @@
 
-define([
+define('moduleA', [
 ], function(
 ) {
     console.log('moduleA');

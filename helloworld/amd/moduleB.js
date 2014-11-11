@@ -1,5 +1,5 @@
 
-define([
+define('moduleB', [
     'moduleA'
 ], function(
     A
