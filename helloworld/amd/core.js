@@ -543,10 +543,10 @@
                 'log',
                 'warn'
             ], function(type) {
-                P[type.toUpperCase()] = (typeof console === U) ? noop : console[type];
+                P[type.toUpperCase()] = (typeof console === U) ? noop : P.bind(console[type], console);
             });
             P.ERROR = function(err) {
-                P.WARN(P.toArray(arguments));
+                P.WARN(err);
                 throw new Error(err);
             };
         // }

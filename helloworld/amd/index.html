@@ -2,15 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>amd implement</title>
 </head>
 <body>
     <script src="core.js"></script>
     <script src="event.js"></script>
-    <script src="module.js"></script>
-    <!-- <script src="define.js"></script> -->
+    <script src="define.js"></script>
     <!-- <script src="require.js"></script> -->
-    <script src="tAMD.js"></script>
+    <!-- <script src="tAMD.js"></script> -->
     <!-- <script src="sea.js"></script> -->
     <!-- <script src="dojo/dojo.js"></script> -->
     <!-- <script src="dojo/dojoAll.js"></script> -->
@@ -20,15 +19,37 @@
     <script>
 
         define([
+            // 'pastry',
+            'Module',
             'moduleB'
-        ], function () {
-            console.log('loaded B');
+        ], function (
+            // pastry,
+            Module,
+            moduleB
+        ) {
+            // console.log(pastry);
+            Module.on('meta-got', function (meta) {
+                console.log('meta got!!', meta);
+            });
+            console.log(Module, Module.on);
+            console.log('loaded ' + moduleB);
         });
 
         define([
             'moduleC'
-        ], function () {
-            console.log('loaded C');
+        ], function (
+            moduleC
+        ) {
+            console.log('loaded ' + moduleC);
+        });
+
+        define('moduleD', [
+            'moduleC'
+        ], function (
+            moduleC
+        ) {
+            console.log('loaded ' + moduleC);
+            return 'D';
         });
 
     </script>
