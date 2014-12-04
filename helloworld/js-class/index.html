@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>class implement in javascript</title>
+</head>
+<body>
+    <script src="./browser-debug.js"></script>
+    <script>
+        define('Class', [
+            'pastry'
+        ], function (
+            pastry
+        ) {
+            var Class = function (classname, superclass, props) {
+            };
+            return Class;
+        });
+
+        define('class/Animal', [
+            'Class'
+        ], function (
+            Class
+        ) {
+            var Animal = new Class('Animal', [], {
+            });
+            var dog = new Animal('dog');
+        });
+    </script>
+</body>
+</html>
