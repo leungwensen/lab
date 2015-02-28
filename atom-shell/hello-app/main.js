@@ -22,15 +22,20 @@ app.on('ready', function() {
     // This method will be called when atom-shell has done everything
     // initialization and ready for creating browser windows.
 
-    // Create the browser window. {
+    // Create the browser window (fullscreen). {
+        var Screen = require('screen'),
+            workAreaSize = Screen.getPrimaryDisplay().workAreaSize;
         mainWindow = new BrowserWindow({
-            width      : 1280,
-            height     : 900
+            width: workAreaSize.width,
+            height: workAreaSize.height,
         });
     // }
 
     // and load the index.html of the app. {
         mainWindow.loadUrl('file://' + __dirname + '/index.html');
+    // }
+    // mainWindow focus {
+        mainWindow.focus();
     // }
 
     // Emitted when the window is closed. {
@@ -42,4 +47,10 @@ app.on('ready', function() {
         });
     // }
 });
+
+// Quit when all windows are closed. {
+    app.on('window-all-closed', function () {
+        app.quit();
+    });
+// }
 
