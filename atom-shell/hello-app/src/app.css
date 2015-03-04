@@ -15,4 +15,7 @@ html, body {
 #editor {
     width: 99%;
 }
+#previewer {
+    overflow: scroll;
+}
 
