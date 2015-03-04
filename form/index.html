@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>基础form元素</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../lib/pastry/0.3.20150303/pastry.min.css">
+<link rel="stylesheet" href="../lib/pastry/0.3.20150303/pastry.components.min.css">
+<link rel="stylesheet" href="../lib/pastry/0.3.20150303/font/css/font-awesome.css">
+<link rel="stylesheet" href="../lib/codemirror-5.0/lib/codemirror.css">
+<script src="../lib/codemirror-5.0/lib/codemirror.js"></script>
+<script src="../lib/codemirror-5.0/mode/javascript/javascript.js"></script>
+<script src="../lib/codemirror-5.0/addon/selection/active-line.js"></script>
+<style>
+#some-code {
+    display: none;
+}
+</style>
+</head>
+<body>
+
+<h2>基础form元素</h2>
+
+<form class="form form-aligned" action="">
+    <fieldset>
+        <div class="control-group">
+        </div>
+        <legend>text类型</legend>
+        <div class="control-group">
+            <label for="">提示字段</label>
+            <input type="text" placeholder="placeholder"/>
+            <span class="fa fa-question-circle"> (tooltip)</span>
+        </div>
+        <legend>number类型</legend>
+        <div class="control-group">
+            <label for="">提示字段</label>
+            <input type="number" placeholder="placeholder"/>
+            <span class="fa fa-question-circle"> (tooltip)</span>
+        </div>
+        <legend>date类型</legend>
+        <div class="control-group">
+            <label for="">提示字段</label>
+            <input type="date" placeholder="placeholder"/>
+            <span class="fa fa-question-circle"> (tooltip)</span>
+        </div>
+        <legend>datetime类型</legend>
+        <div class="control-group">
+            <label for="">提示字段</label>
+            <input type="datetime-local" placeholder="placeholder"/>
+            <span class="fa fa-question-circle"> (tooltip)</span>
+        </div>
+        <legend>checkbox类型</legend>
+        <div class="control-group">
+            <label for="remember1"></label>
+            <input id="remember1" type="checkbox"> 提示字段1
+        </div>
+        <div class="control-group">
+            <label for="remember2"></label>
+            <input id="remember2" type="checkbox"> 提示字段2
+        </div>
+        <legend>select类型</legend>
+        <div class="control-group">
+            <label for="state">State</label>
+            <select id="state">
+                <option>AL</option>
+                <option>CA</option>
+                <option>IL</option>
+            </select>
+            <span class="fa fa-question-circle"> (tooltip)</span>
+        </div>
+        <legend>textarea类型</legend>
+        <div class="control-group">
+            <label for="some-text">text</label>
+            <textarea id="some-text" placeholder="placeholder"></textarea>
+            <span class="fa fa-question-circle"> (tooltip)</span>
+        </div>
+        <legend>codeEditor类型</legend>
+        <div class="control-group">
+            <label for="some-code">code</label>
+            <span class="fa fa-question-circle"> (tooltip)</span>
+            <textarea id="some-code" placeholder="placeholder">
+function myScript(){return 100;}\n
+            </textarea>
+        </div>
+        <div class="control-group">
+        </div>
+    </fieldset>
+</form>
+<script src="../lib/pastry/0.3.20150303/pastry.components.min.js"></script>
+<script>
+/* jshint strict: true, undef: true, unused: true */
+/* global define */
+
+define([
+    'pastry/pastry',
+    'pastry/dom/query'
+], function(
+    pastry,
+    domQuery
+) {
+    'use strict';
+    /*
+     * @author      : 绝云（wensen.lws）
+     * @description : description
+     */
+console.log(CodeMirror);
+    return CodeMirror.fromTextArea(domQuery.one('#some-code'), {
+        mode            : "javascript",
+        styleActiveLine : true,
+        lineNumbers     : true,
+        lineWrapping    : true
+    });
+});
+</script>
+</body>
+</html>
