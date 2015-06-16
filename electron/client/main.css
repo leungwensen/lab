@@ -1,0 +1,137 @@
+.inline {
+  display: inline-block;
+}
+img {
+  vertical-align: bottom;
+  /* fix bug in adding 4px to table */
+}
+progress {
+  width: 100%;
+  vertical-align: middle;
+  background-color: #fff0a5;
+  height: 6px;
+}
+progress::-webkit-progress-bar {
+  background-color: #fff0a5;
+}
+progress::-webkit-progress-value {
+  background: #468966;
+}
+.progress-bar {
+  cursor: pointer;
+  vertical-align: middle;
+  display: inline-block;
+  width: 100%;
+  height: 4px;
+  background-color: #eee;
+  border-radius: 2px;
+}
+.progress-bar .bar {
+  display: block;
+  background-color: #fff0a5;
+  width: 0%;
+  height: 4px;
+}
+.progress-bar .slider {
+  display: block;
+  position: relative;
+  background-color: grey;
+  left: 0%;
+  height: 6px;
+  width: 2px;
+  margin-top: -5px;
+}
+html,
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+#app {
+  width: 640px;
+  border: 1px solid lightgrey;
+  margin: 0 auto;
+  border-radius: 2px;
+}
+#player {
+  border-spacing: 0;
+  width: 100%;
+  margin-bottom: -1px;
+  /* conflict with app border */
+  border-bottom: 1px solid lightgrey;
+  table-layout: fixed;
+}
+#player .album-cover {
+  width: 80px;
+  padding: 0 10px 0 0;
+}
+#player .album-cover img {
+  width: 80px;
+  height: 80px;
+}
+#player .album-info {
+  font-size: 12px;
+  color: grey;
+}
+#player .song-info {
+  font-size: 20px;
+  color: #666;
+}
+#player .music-progress {
+  margin-top: -10px;
+}
+#player .music-progress progress {
+  height: 3px;
+}
+#player .music-progress .time-left {
+  font-size: 12px;
+  float: right;
+  margin-bottom: -8px;
+  color: grey;
+}
+#player .control-group {
+  -webkit-user-select: none;
+  font-size: 25px;
+  margin-top: -5px;
+  color: grey;
+}
+#player .control-group .music-control span {
+  width: 45px;
+}
+#player .control-group .music-control span:hover {
+  color: #ffb03b;
+}
+#player .control-group .music-control #btn-like:hover {
+  color: #b64926;
+}
+#player .control-group .music-control #btn-like.is-liked {
+  color: #b64926;
+}
+#player .control-group .music-control #btn-like.is-liked:hover {
+  color: #fff0a5;
+}
+#player .control-group .music-control #btn-ban:hover {
+  color: #8e2800;
+}
+#player .volume-progress {
+  width: 80px;
+}
+#player .volume-control {
+  font-size: 16px;
+  float: right;
+  margin: 4px -1px 0 0;
+}
+#player .user-info {
+  width: 50px;
+  padding: 0 10px;
+}
+#player .user-info img.avatar {
+  border-radius: 25px;
+  width: 50px;
+  height: 50px;
+}
+#detail {
+  width: 100%;
+  height: 480px;
+}

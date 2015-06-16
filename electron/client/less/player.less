@@ -1,0 +1,85 @@
+@album-width: 80px;
+@avatar-width: 50px;
+#player {
+    border-spacing: 0;
+    width: 100%;
+    margin-bottom: -1px; /* conflict with app border */
+    border-bottom: 1px solid lightgrey;
+    table-layout: fixed;
+    .album-cover {
+        width: @album-width;
+        padding: 0 10px 0 0;
+        img {
+            width : @album-width;
+            height: @album-width;
+        }
+    }
+    .album-info {
+        font-size: 12px;
+        color: grey;
+    }
+    .song-info {
+        font-size: 20px;
+        color: #666;
+    }
+    .music-progress {
+        margin-top: -10px;
+        progress {
+            height: 3px;
+        }
+        .time-left {
+            font-size: 12px;
+            float: right;
+            margin-bottom: -8px;
+            color: grey;
+        }
+    }
+    .control-group {
+        -webkit-user-select: none;
+        font-size: 25px;
+        margin-top: -5px;
+        color: grey;
+        .music-control {
+            span {
+                width: 45px;
+                &:hover {
+                    color: @color-3;
+                }
+            }
+            #btn-like {
+                &:hover {
+                    color: @color-4;
+                }
+                &.is-liked {
+                    color: @color-4;
+                    &:hover {
+                        color: @color-2;
+                    }
+                }
+            }
+            #btn-ban {
+                &:hover {
+                    color: @color-5;
+                }
+            }
+        }
+    }
+    .volume-progress {
+        width: 80px;
+    }
+    .volume-control {
+        font-size: 16px;
+        float: right;
+        margin: 4px -1px 0 0;
+    }
+    .user-info {
+        width: @avatar-width;
+        padding: 0 10px;
+        img.avatar {
+            border-radius: @avatar-width/2;
+            width : @avatar-width;
+            height: @avatar-width;
+        }
+    }
+
+}

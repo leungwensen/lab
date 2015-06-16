@@ -1,0 +1,3 @@
+[submodule "electron/lib/leungwensen/pastry"]
+	path = electron/lib/leungwensen/pastry
+	url = git@github.com:leungwensen/pastry.git

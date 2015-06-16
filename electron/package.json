@@ -1,0 +1,41 @@
+{
+    "name": "douban-fm",
+    "productName": "DoubanFm",
+    "version": "0.0.0",
+    "description": "My world-class app",
+    "license": "MIT",
+    "main": "app.js",
+    "repository": "leungwensen/douban-fm",
+    "author": {
+        "name": "绝云",
+        "email": "wensen.lws@alibaba-inc.com",
+        "url": "leungwensen.com"
+    },
+    "engines": {
+        "node": ">=0.10.0"
+    },
+    "scripts": {
+        "start": "electron .",
+        "build": "electron-packager . $npm_package_productName --prune --asar --ignore=node_modules/electron-prebuilt --ignore=node_modules/electron-packager --ignore=.git"
+    },
+    "files": [
+        "app.js",
+        "index.html"
+    ],
+    "keywords": [
+        "electron-app"
+    ],
+    "dependencies": {
+        "request": "*"
+    },
+    "devDependencies": {
+        "electron-packager": "*",
+        "electron-prebuilt": "*",
+        "grunt": "*",
+        "grunt-contrib-less": "*",
+        "grunt-contrib-watch": "*",
+        "load-grunt-config": "*",
+        "pastry": "*",
+        "time-grunt": "*"
+    }
+}

@@ -1,0 +1,17 @@
+options:
+  spawn: false
+  livereload: <%= livereload %>
+
+templates:
+  files:
+    - client/template/*.html
+    - client/template/*.ptmpl
+  tasks:
+    - compileTemplates
+
+stylesheet:
+  files:
+    - client/**/*.less
+    - client/main.less
+  tasks:
+    - less

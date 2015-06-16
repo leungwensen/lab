@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- color scheme: https://color.adobe.com/Firenze-color-theme-24198/?showPublished=true -->
+<html lang="en">
+    <head>
+        <title>douban fm</title>
+        <meta name="author" content="wensen.lws">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" href="lib/leungwensen/pastry/build/pastry.css">
+        <link rel="stylesheet" href="lib/leungwensen/pastry/build/ui.css">
+        <link rel="stylesheet" href="lib/leungwensen/pastry/build/font/css/font-awesome.css">
+        <link rel="stylesheet" href="lib/leungwensen/pastry/build/theme/default.css">
+        <link rel="stylesheet" href="client/main.css">
+    </head>
+    <body>
+        <div class="container" id="app">
+            <table class="player" id="player">
+                <tbody>
+                    <tr>
+                        <td class="album-cover" rowspan="2">
+                            <img src="client/assets/grey-placeholder.png" alt="album" id="album-cover">
+                        </td>
+                        <td class="music-info">
+                            <div class="album-info">
+                                <span class="artist-name" id="artist-name">artist</span>
+                                /
+                                <span class="album-title" id="album-title">album title</span>
+                            </div>
+                            <div class="song-info">
+                                <span class="music-title" id="music-title">music title</span>
+                            </div>
+                            <audio id="song" src="http://mr3.douban.com/201506151633/0b91f9eebe01b6ab4461aa5a72568d94/view/song/small/p503493_128k.mp4"></audio>
+                            <div class="progress music-progress" id="music-progress">
+                                <span class="time-left" id="time-left">00:00</span>
+                            </div>
+                        </td>
+                        <td class="user-info" rowspan="2" id="user-info">
+                            <img class="avatar" src="client/assets/grey-placeholder.png" alt="avatar">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="control-group">
+                                <div class="inline music-control">
+                                    <span class="fa fa-backward" id="btn-previous"></span>
+                                    <span class="fa fa-play" id="btn-play"></span>
+                                    <span class="fa fa-forward" id="btn-next"></span>
+                                    <span class="fa fa-heart" id="btn-like"></span>
+                                    <span class="fa fa-trash" id="btn-ban"></span>
+                                </div>
+                                <div class="inline volume-control">
+                                    <span class="fa fa-volume-off" id="btn-volume"></span>
+                                    <div class="inline progress volume-progress" id="volume-progress">
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="detail">
+            </div>
+        </div>
+        <script src="client/remote.js"></script>
+        <script src="lib/leungwensen/pastry/src/amd-loader.js"></script>
+        <script src="client/main.js"></script>
+    </body>
+</html>
