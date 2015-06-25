@@ -3,9 +3,11 @@
 
 define([
     'pastry/dom/event',
+    'pastry/dom/hotkey',
     '../event'
 ], function(
     domEvent,
+    hotkey,
     event
 ) {
     'use strict';
@@ -36,26 +38,32 @@ define([
             event.on('player-set-volume', function(value) {
                 player.setVolume(value);
             });
-            event.on('player-next', function() {
+            event.on('player-play-next', function() {
                 player.next();
             });
         // }
         // dom events {
-            domEvent.on(domNodes.btnPlay, 'click', function() {
-                event.trigger('player-play-or-pause');
-            });
-            domEvent.on(domNodes.btnForward, 'click', function() {
-                event.trigger('player-next');
-            });
             domEvent.on(songNode, 'timeupdate', function() {
                 event.trigger('player-update-music-progress');
             });
             domEvent.on(songNode, 'ended', function() {
                 event.trigger('player-pause');
-                event.trigger('player-next');
+                event.trigger('player-play-next');
             });
             domEvent.on(songNode, 'durationchange', function() {
                 event.trigger('player-update-music-progress');
+            });
+
+            domEvent.on(domNodes.btnPlay, 'click', function() {
+                event.trigger('player-play-or-pause');
+            });
+            domEvent.on(domNodes.btnForward, 'click', function() {
+                event.trigger('player-play-next');
+            });
+        // }
+        // hotkeys {
+            hotkey.on('space', function() {
+                event.trigger('player-play-or-pause');
             });
         // }
     };

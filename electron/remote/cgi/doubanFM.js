@@ -9,7 +9,7 @@ const GENRE_CHANNELS = require('./genreChannels.js');
 
 var pastry = require('pastry'),
     each = pastry.each,
-    //sprintf = pastry.sprintf,
+    sprintf = pastry.sprintf,
     //querystring = pastry.querystring,
     toInt = pastry.toInt,
     extend = pastry.extend;
@@ -343,13 +343,11 @@ var cgi = {
         });
     },
     personalPlaylist: function(opt, cb) {
-        cb = cb || noop;
         cgi.playlist(extend({}, opt, {
             channel: PERSONAL_CHANNEL_ID
         }), cb);
     },
     likedPlaylist: function(opt, cb) {
-        cb = cb || noop;
         cgi.playlist(extend({}, opt, {
             channel: LIKED_CHANNEL_ID
         }), cb);
@@ -373,6 +371,14 @@ var cgi = {
         cgi.playlist(extend({}, opt, {
             type: 'b'
         }), cb);
+    },
+    shareUrl: function(opt, cb) {
+        cb = cb || noop;
+        var url = getUrl('/', {
+            start: sprintf('%sg%sg', opt.sid, opt.ssid)
+        });
+        cb(null, url);
+        return url;
     }
 };
 

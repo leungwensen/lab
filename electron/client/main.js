@@ -5,6 +5,7 @@ define([
     './layout',
     './user',
     './player',
+    './floating',
     './detail'
 ], function(
 ) {

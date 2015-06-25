@@ -1,45 +1,65 @@
 @album-width: 80px;
-@avatar-width: 50px;
+@avatar-width: 45px;
 #player {
-    border-spacing: 0;
-    width: 100%;
-    margin-bottom: -1px; /* conflict with app border */
+    /*margin-bottom: -1px; [> conflict with app border <]*/
     border-bottom: 1px solid lightgrey;
+    border-spacing: 0;
+    color: grey;
     table-layout: fixed;
+    width: 100%;
     .album-cover {
-        width: @album-width;
         padding: 0 10px 0 0;
+        width: @album-width;
         img {
-            width : @album-width;
+            border-right: 3px solid lightgrey;
             height: @album-width;
+            width: @album-width;
+            &:hover {
+                border-right: 3px solid @color-1;
+            }
+        }
+    }
+    .album-cover img, .user-info img.avatar {
+        border: 2px solid lightgrey;
+        cursor: pointer;
+        &:hover {
+            border: 2px solid @color-1;
         }
     }
     .album-info {
         font-size: 12px;
-        color: grey;
+    }
+    .artist-name, .music-title, .album-title, #user-name {
+        cursor: pointer;
+        &:hover {
+            background-color: @color-1;
+            color: white;
+        }
     }
     .song-info {
-        font-size: 20px;
         color: #666;
+        font-size: 20px;
+    }
+    .music-title {
+        max-width: 96%;
     }
     .music-progress {
-        margin-top: -10px;
+        margin-top: -15px;
         progress {
             height: 3px;
         }
         .time-left {
-            font-size: 12px;
             float: right;
+            font-size: 12px;
             margin-bottom: -8px;
-            color: grey;
         }
     }
     .control-group {
         -webkit-user-select: none;
         font-size: 25px;
         margin-top: -5px;
-        color: grey;
         .music-control {
+            cursor: pointer;
             span {
                 width: 45px;
                 &:hover {
@@ -62,24 +82,41 @@
                     color: @color-5;
                 }
             }
+            #btn-lyrics {
+                display: inline-block;
+                font-weight: bold;
+                &:hover {
+                    color: @color-1;
+                }
+            }
+            #btn-detail {
+                &:hover {
+                    color: @color-1;
+                }
+            }
         }
     }
     .volume-progress {
         width: 80px;
     }
     .volume-control {
-        font-size: 16px;
         float: right;
+        font-size: 16px;
         margin: 4px -1px 0 0;
     }
     .user-info {
-        width: @avatar-width;
-        padding: 0 10px;
+        padding: 5px;
+        text-align: center;
+        width: @avatar-width + 10px;
         img.avatar {
-            border-radius: @avatar-width/2;
-            width : @avatar-width;
+            border-radius: @avatar-width/2 + 2;
             height: @avatar-width;
+            width: @avatar-width;
         }
     }
-
+    #user-name {
+        margin: 3px 0 -3px 0;
+        max-width: @avatar-width + 20px;
+        text-align: center;
+    }
 }

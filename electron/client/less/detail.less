@@ -1,5 +1,30 @@
-@detail-height: 480px;
+/*@detail-height: 480px;*/
 #detail {
+    /*height: @detail-height;*/
     width: 100%;
-    height: @detail-height;
+    .tab {
+        width: 100%;
+    }
+    .tab-navigators {
+        /*border-bottom: 1px solid lightgrey;*/
+    }
+    .tab-navigator {
+        /*border-top-color: lightgrey;*/
+        /*border-top-width: 3px;*/
+        background-color: lightgrey;
+        border-top: none;
+        cursor: pointer;
+        padding: 3px;
+        width: 25%;
+        &:hover {
+            color: @color-1;
+            font-weight: bold;
+        }
+        &.selected {
+            /*border-top-color: white;*/
+            background-color: white;
+            color: @color-1;
+            font-weight: bold;
+        }
+    }
 }

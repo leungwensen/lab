@@ -26,7 +26,9 @@
         "electron-app"
     ],
     "dependencies": {
-        "request": "*"
+        "request": "*",
+        "pastry": "*",
+        "cheerio": "*"
     },
     "devDependencies": {
         "electron-packager": "*",
@@ -35,7 +37,6 @@
         "grunt-contrib-less": "*",
         "grunt-contrib-watch": "*",
         "load-grunt-config": "*",
-        "pastry": "*",
         "time-grunt": "*"
     }
 }

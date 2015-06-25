@@ -1,14 +1,26 @@
+@app-width: 640px;
+@app-height: 480px;
 html,
 body {
-    padding: 0;
-    margin: 0;
-    width: 100%;
+    font: 12px Helvetica,Arial,sans-serif; /*from douban.com*/
     height: 100%;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    width: 100%;
 }
-
 #app {
-    width: @app-width;
-    border: 1px solid lightgrey;
-    margin: 0 auto;
-    border-radius: 2px;
+    /*-webkit-app-region: drag;*/
+    /*border-radius: 2px;*/
+    /*border: 1px solid lightgrey;*/
+    /*bottom: 0;*/
+    /*height: 100%;*/
+    /*margin: 0 auto;*/
+    /*top: 0;*/
+    background-color: white;
+    color: grey;
+    height: 100vh;
+    min-height: @app-height;
+    min-width: @app-width;
+    overflow: hidden;
 }

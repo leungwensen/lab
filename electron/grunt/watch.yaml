@@ -1,6 +1,5 @@
 options:
   spawn: false
-  livereload: <%= livereload %>
 
 templates:
   files:

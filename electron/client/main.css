@@ -5,17 +5,16 @@ img {
   vertical-align: bottom;
   /* fix bug in adding 4px to table */
 }
-progress {
-  width: 100%;
-  vertical-align: middle;
-  background-color: #fff0a5;
-  height: 6px;
+.text-length-limit {
+  -o-text-overflow: ellipsis;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: keep-all;
 }
-progress::-webkit-progress-bar {
-  background-color: #fff0a5;
-}
-progress::-webkit-progress-value {
-  background: #468966;
+.float-right {
+  float: right;
 }
 .progress-bar {
   cursor: pointer;
@@ -41,60 +40,149 @@ progress::-webkit-progress-value {
   width: 2px;
   margin-top: -5px;
 }
-html,
-body {
-  padding: 0;
-  margin: 0;
+@keyframes kf-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+.loading-spinner {
+  display: table;
+  text-align: center;
+  font-size: 36px;
   width: 100%;
   height: 100%;
 }
+.loading-spinner .fa-spinner {
+  display: table-cell;
+  vertical-align: middle;
+  animation: kf-spin 2s infinite linear;
+}
+.tab-navigators {
+  -webkit-margin-after: 0;
+  -webkit-margin-before: 0;
+  -webkit-margin-end: 0;
+  -webkit-margin-start: 0;
+  -webkit-padding-start: 0;
+  list-style: none;
+  text-align: center;
+}
+.tab-navigator {
+  /*float: left;*/
+  border-top: 2px solid white;
+  list-style: none;
+}
+.tab-navigator:hover {
+  border-top: 2px solid #fff0a5;
+}
+.tab-navigator.selected {
+  border-top: 2px solid #ffb03b;
+}
+.tab-content {
+  display: none;
+}
+.tab-content.selected {
+  display: block;
+}
+html,
+body {
+  font: 12px Helvetica, Arial, sans-serif;
+  /*from douban.com*/
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  width: 100%;
+}
 #app {
-  width: 640px;
-  border: 1px solid lightgrey;
-  margin: 0 auto;
-  border-radius: 2px;
+  /*-webkit-app-region: drag;*/
+  /*border-radius: 2px;*/
+  /*border: 1px solid lightgrey;*/
+  /*bottom: 0;*/
+  /*height: 100%;*/
+  /*margin: 0 auto;*/
+  /*top: 0;*/
+  background-color: white;
+  color: grey;
+  height: 100vh;
+  min-height: 480px;
+  min-width: 640px;
+  overflow: hidden;
 }
 #player {
-  border-spacing: 0;
-  width: 100%;
-  margin-bottom: -1px;
-  /* conflict with app border */
+  /*margin-bottom: -1px; [> conflict with app border <]*/
   border-bottom: 1px solid lightgrey;
+  border-spacing: 0;
+  color: grey;
   table-layout: fixed;
+  width: 100%;
 }
 #player .album-cover {
-  width: 80px;
   padding: 0 10px 0 0;
+  width: 80px;
 }
 #player .album-cover img {
-  width: 80px;
+  border-right: 3px solid lightgrey;
   height: 80px;
+  width: 80px;
+}
+#player .album-cover img:hover {
+  border-right: 3px solid #468966;
+}
+#player .album-cover img,
+#player .user-info img.avatar {
+  border: 2px solid lightgrey;
+  cursor: pointer;
+}
+#player .album-cover img:hover,
+#player .user-info img.avatar:hover {
+  border: 2px solid #468966;
 }
 #player .album-info {
   font-size: 12px;
-  color: grey;
+}
+#player .artist-name,
+#player .music-title,
+#player .album-title,
+#player #user-name {
+  cursor: pointer;
+}
+#player .artist-name:hover,
+#player .music-title:hover,
+#player .album-title:hover,
+#player #user-name:hover {
+  background-color: #468966;
+  color: white;
 }
 #player .song-info {
-  font-size: 20px;
   color: #666;
+  font-size: 20px;
+}
+#player .music-title {
+  max-width: 96%;
 }
 #player .music-progress {
-  margin-top: -10px;
+  margin-top: -15px;
 }
 #player .music-progress progress {
   height: 3px;
 }
 #player .music-progress .time-left {
-  font-size: 12px;
   float: right;
+  font-size: 12px;
   margin-bottom: -8px;
-  color: grey;
 }
 #player .control-group {
   -webkit-user-select: none;
   font-size: 25px;
   margin-top: -5px;
-  color: grey;
+}
+#player .control-group .music-control {
+  cursor: pointer;
 }
 #player .control-group .music-control span {
   width: 45px;
@@ -114,24 +202,105 @@ body {
 #player .control-group .music-control #btn-ban:hover {
   color: #8e2800;
 }
+#player .control-group .music-control #btn-lyrics {
+  display: inline-block;
+  font-weight: bold;
+}
+#player .control-group .music-control #btn-lyrics:hover {
+  color: #468966;
+}
+#player .control-group .music-control #btn-detail:hover {
+  color: #468966;
+}
 #player .volume-progress {
   width: 80px;
 }
 #player .volume-control {
-  font-size: 16px;
   float: right;
+  font-size: 16px;
   margin: 4px -1px 0 0;
 }
 #player .user-info {
-  width: 50px;
-  padding: 0 10px;
+  padding: 5px;
+  text-align: center;
+  width: 55px;
 }
 #player .user-info img.avatar {
-  border-radius: 25px;
-  width: 50px;
-  height: 50px;
+  border-radius: 24.5px;
+  height: 45px;
+  width: 45px;
 }
+#player #user-name {
+  margin: 3px 0 -3px 0;
+  max-width: 65px;
+  text-align: center;
+}
+/*@detail-height: 480px;*/
 #detail {
+  /*height: @detail-height;*/
   width: 100%;
-  height: 480px;
+}
+#detail .tab {
+  width: 100%;
+}
+#detail .tab-navigators {
+  /*border-bottom: 1px solid lightgrey;*/
+}
+#detail .tab-navigator {
+  /*border-top-color: lightgrey;*/
+  /*border-top-width: 3px;*/
+  background-color: lightgrey;
+  border-top: none;
+  cursor: pointer;
+  padding: 3px;
+  width: 25%;
+}
+#detail .tab-navigator:hover {
+  color: #468966;
+  font-weight: bold;
+}
+#detail .tab-navigator.selected {
+  /*border-top-color: white;*/
+  background-color: white;
+  color: #468966;
+  font-weight: bold;
+}
+#floating {
+  background-color: white;
+  box-shadow: 0px 0px 15px 1px grey;
+  bottom: 5px;
+  border-radius: 3px;
+  left: 5px;
+  position: absolute;
+  right: 5px;
+  top: 64px;
+  padding: 5px;
+  transform: translate(-110%, 0);
+  transition: all 0.5s;
+  z-index: 99;
+}
+#floating.show {
+  transform: translate(0, 0);
+}
+#floating .floating-header {
+  color: #468966;
+  font-size: 16px;
+  text-align: center;
+}
+#floating .floating-title {
+  font-weight: bold;
+}
+#floating .floating-body {
+  bottom: 5px;
+  left: 5px;
+  position: absolute;
+  right: 5px;
+  top: 24px;
+}
+#floating .fa-close {
+  cursor: pointer;
+  color: grey;
+}
+#floating .fa-close:hover {
+  color: #8e2800;
 }

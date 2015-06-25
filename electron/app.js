@@ -1,4 +1,5 @@
 'use strict';
+
 const app = require('app');
 const BrowserWindow = require('browser-window');
 const pastry = require('./lib/leungwensen/pastry/build/nodejs.js');
@@ -17,11 +18,13 @@ app.on('window-all-closed', function () {
 
 app.on('ready', function () {
     mainWindow = new BrowserWindow({
-        //frame: false,
         height: 900,
-        resizable: true,
-        //transparent: true,
         width: 1200,
+        'min-width': 640,
+        'min-height': 480,
+        resizable: true,
+        //frame: false,
+        //transparent: true,
     });
 
     mainWindow.loadUrl(pastry.sprintf('file://%s/index.html', __dirname));
