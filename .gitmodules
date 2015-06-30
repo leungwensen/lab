@@ -1,3 +1,18 @@
 [submodule "electron/lib/leungwensen/pastry"]
 	path = electron/lib/leungwensen/pastry
 	url = git@github.com:leungwensen/pastry.git
+[submodule "zfinder/lib/leungwensen/pastry"]
+	path = zfinder/lib/leungwensen/pastry
+	url = git@github.com:leungwensen/pastry.git
+[submodule "zfinder/lib/chjj/marked"]
+	path = zfinder/lib/chjj/marked
+	url = https://github.com/chjj/marked.git
+[submodule "zfinder/lib/sindresorhus/github-markdown-css"]
+	path = zfinder/lib/sindresorhus/github-markdown-css
+	url = https://github.com/sindresorhus/github-markdown-css.git
+[submodule "zfinder/lib/moment/moment"]
+	path = zfinder/lib/moment/moment
+	url = https://github.com/moment/moment.git
+[submodule "zfinder/lib/avoidwork/filesize.js"]
+	path = zfinder/lib/avoidwork/filesize.js
+	url = https://github.com/avoidwork/filesize.js.git
