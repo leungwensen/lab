@@ -18,12 +18,13 @@ app.on('window-all-closed', function () {
 
 app.on('ready', function () {
     mainWindow = new BrowserWindow({
-        height: 900,
+        height: 600,
         width: 1200,
         'min-width': 640,
         'min-height': 480,
-        resizable: true,
-        //frame: false,
+        //resizable: true,
+        frame: false,
+        title: 'title',
         //transparent: true,
     });
 
