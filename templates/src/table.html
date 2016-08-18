@@ -1,0 +1,18 @@
+<table>
+    <thead>
+        <tr>
+        <% for(var i = 0; i < cols; i ++){ %>
+            <th><%= 'col' + i %></th>
+        <% } %>
+        </tr>
+    </thead>
+    <tbody>
+    <% products.forEach(function(product){ %>
+        <tr>
+        <% for(var i = 0; i < cols; i ++){ %>
+            <td><%= product[i] %></td>
+        <% } %>
+        </tr>
+    <% }); %>
+    </tbody>
+</table>

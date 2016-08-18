@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>模版性能</title>
+        <style type="text/css" media="all">
+#render {
+    list-style: none;
+}
+#render li {
+    list-style: none;
+    display: inline-block;
+    width: 24.5%;
+    max-height: 200px;
+    overflow: auto;
+}
+#canvas {
+    width: 100%;
+    height: 400px;
+}
+        </style>
+    </head>
+    <body>
+        <ul id="render">
+            <li id="render-injected"></li>
+            <li id="render-as-module"></li>
+            <li id="render-incremental-dom"></li>
+            <li id="render-react"></li>
+        </ul>
+        <div id="canvas"></div>
+        <script id="injected-template" type="text/template">
+<table>
+    <thead>
+        <tr>
+        <% for(var i = 0; i < cols; i ++){ %>
+            <th><%= 'col' + i %></th>
+        <% } %>
+        </tr>
+    </thead>
+    <tbody>
+    <% products.forEach(function(product){ %>
+        <tr>
+        <% for(var i = 0; i < cols; i ++){ %>
+            <td><%= product[i] %></td>
+        <% } %>
+        </tr>
+    <% }); %>
+    </tbody>
+</table>
+        </script>
+        <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="./node_modules/underscore/underscore-min.js"></script>
+        <script src="./node_modules/incremental-dom/dist/incremental-dom-min.js"></script>
+        <script src="./node_modules/react/dist/react.min.js"></script>
+        <script src="./node_modules/react-dom/dist/react-dom.min.js"></script>
+        <script src="./node_modules/echarts/dist/echarts.min.js"></script>
+        <script src="./dist/index.js"></script>
+    </body>
+</html>
