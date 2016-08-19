@@ -189,4 +189,3 @@ function renderChart(time) {
     const chart = echarts.init($canvas[0]);
     chart.setOption(option);
 }
-
