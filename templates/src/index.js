@@ -16,7 +16,7 @@ const $canvas = $('#canvas');
 const $renderTarget = {};
 const data = {};
 const time = {};
-const cols = 100;
+const cols = 5;
 const rows = 300;
 _.each(types, (type) => {
     $renderTarget[type] = $(`#render-${type}`);
@@ -82,9 +82,9 @@ function incrementalDomRender(products) {
     for (let i = 0; i < products.length; i ++) {
         elementOpen('tbody');
         elementOpen('tr');
-        for (let i = 0; i < cols; i ++) {
+        for (let j = 0; j < cols; j ++) {
             elementOpen('td');
-            text(products[i][0]);
+            text(products[i][j]);
             elementClose('td');
         }
         elementClose('tr');
