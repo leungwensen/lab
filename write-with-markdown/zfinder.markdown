@@ -3,12 +3,12 @@
 [Zfinder](https://github.com/leungwensen/zfinder) is designed to replace the finder.app in Mac (or file explorer in Windows). With the magic of modern Browsers, we can do a lot more.
 
 <style>
-    h1 {
-        color: red;
-    }
+  h1 {
+    color: red;
+  }
 </style>
 <script>
-    alert(1);
+  alert(1);
 </script>
 
 ## Usage
