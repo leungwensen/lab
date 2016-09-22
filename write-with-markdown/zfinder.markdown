@@ -2,14 +2,19 @@
 
 [Zfinder](https://github.com/leungwensen/zfinder) is designed to replace the finder.app in Mac (or file explorer in Windows). With the magic of modern Browsers, we can do a lot more.
 
+```css+
 <style>
   h1 {
     color: red;
   }
 </style>
+```
+
+```javascript+
 <script>
   alert(1);
 </script>
+```
 
 ## Usage
 
