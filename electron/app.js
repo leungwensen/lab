@@ -1,11 +1,16 @@
 'use strict';
 
-const app = require('app');
-const BrowserWindow = require('browser-window');
+const electron = require('electron');
+const lang = require('zero-lang');
+const xmind = require('xmind');
+
+const app = electron.app;
+const BrowserWindow = electron.BrowserWindow;
 const pastry = require('./lib/leungwensen/pastry/build/nodejs.js');
 
+
 // report crashes to the Electron project
-require('crash-reporter').start();
+//require('crash-reporter').start();
 
 // prevent window being GC'd
 let mainWindow = null;
