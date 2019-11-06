@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <canvas id="gl-canvas" width="640" height="480"></canvas>
+  <script>
+    // vertex shader
+    const vsSrc = `
+      attribute vec4 aVertexPosition;
+      uniform mat4 uModelViewMatrix;
+      uniform mat4 uProjectionMatrix;
+      void main() {
+        gl_Position = uProjectionMatrix * uModelViewMatrix * aVertexPosition;
+      }
+    `
+    // fragment shader
+    const fsSrc = `
+      void main() {
+        gl_fragColor = vec4(1.0, 1.0, 1.0, 1.0);
+      }
+    `
+    function loadShader(gl, type, src) {
+      const shader = gl.createShader(type);
+      // Send the source to the shader object
+      gl.shaderSource(shader, source);
+      // Compile the shader program
+      gl.compileShader(shader);
+      // See if it compiled successfully
+      if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+        alert('An error occurred compiling the shaders: ' + gl.getShaderInfoLog(shader));
+        gl.deleteShader(shader);
+        return null;
+      }
+      return shader;
+    }
+    function initShaderProgram(gl, _vsSrc, _fsSrc) {
+      const vertexShader = loadShader(gl, gl.VERTEX_SHADER, _vsSrc)
+      const fragmentShader = loadShader(gl, gl.FRAGMENT_SHADER, _fsSrc)
+      const shaderProgram = gl.createProgram()
+      gl.attachShader(shaderProgram, vertexShader)
+      gl.attachShader(shaderProgram, fragmentShader)
+      gl.linkProgram(shaderProgram)
+      if (!gl.getProgramParameter(shaderProgram, gl.LINK_STATUS)) {
+        alert('Unable to init shader program: ' + gl.getProgramInfoLog(shaderProgram))
+        return null
+      }
+      return shaderProgram
+    }
+    function main() {
+      const canvas = document.querySelector('#gl-canvas')
+      const gl = canvas.getContext('webgl')
+      if (gl === null) {
+        alert('Unable to initialize WebGL. Your browser or machine may not support it.')
+        return
+      }
+      // set clear color to black, fully opaque
+      gl.clearColor(0.0, 0.0, 0.0, 1.0)
+      // clear the color buffer with specified clear color
+      gl.clear(gl.COLOR_BUFFER_BIT)
+    }
+
+    window.onload = main
+  </script>
+</body>
+
+</html>
