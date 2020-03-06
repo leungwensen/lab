@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='loc'></div>
+  <div id='pr'></div>
+  <script src='./lodash.min.js'></script>
+  <script src='./plotly-latest.min.js'></script>
+  <script>
+    Plotly.d3.csv("./data.csv", function (err, rows) {
+      function unpack(rows, key) {
+        return rows.map(function (row) { return row[key]; });
+      }
+      var baseConfig = {
+        // showlegend: false,
+        type: 'violin',
+        points: 'none',
+        box: {
+          visible: true
+        },
+        boxpoints: false,
+        line: {
+          color: 'black'
+        },
+        opacity: 0.6,
+        meanline: {
+          visible: true
+        },
+      };
+      var baseLayout = {
+        yaxis: {
+          zeroline: false
+        },
+        xaxis: {
+          visible: false
+        }
+      };
+      function getRow(config) {
+        return _.assignIn({}, baseConfig, config);
+      }
+      function getLayout(layout) {
+        return _.assignIn({}, baseLayout, layout);
+      }
+      // loc
+      Plotly.newPlot(
+        'loc',
+        [
+          getRow({
+            name: 'master branch',
+            y: unpack(rows, 'master_branch_rows'),
+            fillcolor: '#8dd3c7',
+          }),
+          getRow({
+            name: 'total',
+            y: unpack(rows, 'rows'),
+            fillcolor: '#8dc7d3',
+          })
+        ],
+        getLayout({
+          title: "LOC",
+        })
+      );
+      // pr
+      Plotly.newPlot(
+        'pr',
+        [
+          getRow({
+            name: 'code review',
+            y: unpack(rows, 'cr'),
+            fillcolor: '#c78dd3',
+          }),
+          getRow({
+            name: 'comments',
+            y: unpack(rows, 'comments'),
+            fillcolor: '#c7d38d',
+          })
+        ],
+        getLayout({
+          title: "Pull Requests",
+        })
+      );
+
+    });
+  </script>
+</body>
+</html>
