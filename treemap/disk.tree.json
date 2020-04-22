@@ -1,0 +1,146 @@
+[
+    {
+        "name": "提效之战",
+        "path": "效率",
+        "children": [
+            {
+                "name": "PC 中台",
+                "children": [
+                    {
+                        "value": 50,
+                        "name": "微应用架构"
+                    },
+                    {
+                        "value": 50,
+                        "name": "OC 研发框架"
+                    },
+                    {
+                        "value": 30,
+                        "name": "Alipay Design Web"
+                    },
+                    {
+                        "value": 30,
+                        "name": "动态 Widget"
+                    },
+                    {
+                        "value": 30,
+                        "name": "low code+\n云凤蝶"
+                    }
+                ]
+            },
+            {
+                "name": "无线中台 Artisan",
+                "children": [
+                    {
+                        "value": 50,
+                        "name": "渲染 SDK"
+                    },
+                    {
+                        "value": 30,
+                        "name": "组件协议+\nAStore"
+                    },
+
+                    {
+                        "value": 30,
+                        "name": "搭建+闪蝶"
+                    }
+                ]
+            },
+            {
+                "name": "无线互动 delta",
+                "children": [
+                    {
+                        "value": 30,
+                        "name": "运行时扩展"
+                    },
+                    {
+                        "value": 30,
+                        "name": "资源库组件库"
+                    },
+                    {
+                        "value": 20,
+                        "name": "逻辑编排"
+                    }
+                ]
+            },
+            {
+                "name": "垂直领域 BFF",
+                "children": [
+                    {
+                        "value": 30,
+                        "name": "B 站接口代理层"
+                    },
+                    {
+                        "value": 30,
+                        "name": "Artisan 协议对接层"
+                    },
+                    {
+                        "value": 30,
+                        "name": "招商平台方案管理层"
+                    },
+                    {
+                        "value": 20,
+                        "name": "文档中心后端"
+                    },
+                    {
+                        "value": 20,
+                        "name": "开放社区后端"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "安全生产之战",
+        "path": "质量",
+        "children": [
+            {
+                "value": 50,
+                "name": "迭代规范+\n安全生产基线"
+            },
+            {
+                "value": 50,
+                "name": "单测、UI 自动化测试"
+            },
+            {
+                "value": 50,
+                "name": "巡检服务"
+            },
+            {
+                "value": 50,
+                "name": "无线质量方案\n魔数"
+            }
+        ]
+    },
+    {
+        "name": "专项体验提升之战",
+        "path": "质量",
+        "children": [
+            {
+                "value": 20,
+                "name": "无线端性能优化"
+            },
+            {
+                "name": "开发者体验",
+                "children": [
+                    {
+                        "value": 50,
+                        "name": "桌面研发助手+\nAntMove"
+                    },
+                    {
+                        "value": 50,
+                        "name": "Serverless"
+                    },
+                    {
+                        "value": 30,
+                        "name": "开发者文档"
+                    },
+                    {
+                        "value": 30,
+                        "name": "开放社区"
+                    }
+                ]
+            }
+        ]
+    }
+]
